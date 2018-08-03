@@ -58,6 +58,7 @@ def preprocess(music_file):
 
 UPLOAD_FOLDER = '/tmp/'
 app = Flask(__name__)
+app.secret_key = 'some secret key'
 app.config['MAX_CONTENT_LENGTH'] = 10 * 1024 * 1024
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -96,7 +97,8 @@ def results():
             genre = 'Classical'
         print('here-classify')
         print(genre)
-        return render_template('results.html', filename=filename, genre=genre)
+        flash('The genre is ' + genre)
+        return render_template('index.html')
         
 
 if __name__ == "__main__":

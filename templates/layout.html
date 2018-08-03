@@ -1,61 +1,31 @@
 <!DOCTYPE html>
-
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/> -->
+    <title>Music Tagging: {% block title %}{% endblock %}</title>
+</head>
+<style>
 
-    <head>
-
-        <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta -->
-        <meta charset="utf-8"/>
-        <meta content="initial-scale=1, width=device-width" name="viewport"/>
-
-        <!-- documentation at http://getbootstrap.com/, alternative themes at https://www.bootstrapcdn.com/bootswatch/ -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-
-        <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
-
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-        <title>Music Tagging: {% block title %}{% endblock %}</title>
-
-    </head>
-
-    <body>
-
-        <div class="container">
-
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#navbar" data-toggle="collapse" type="button">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="{{ url_for('index') }}"><span class="blue">Music</span><span class="red">Tagging</span></a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="navbar">
-                        <ul class="nav navbar-nav navbar-right">
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-            <main>
-                {% block main %}{% endblock %}
-            </main>
-            
-            {% if get_flashed_messages() %}
-                <header>
-                    <div class="alert alert-info" role="alert">
-                        {{ get_flashed_messages() | join(" ") }}
-                    </div>
-                </header>
-            {% endif %}
-
+</style>
+<body>
+    <div class="container">
+        <div id="navbar">
+            <h1>Music Tagging</h1>
         </div>
-
-    </body>
-
+        <div class="content">
+            {% block main %}{% endblock %}
+        </div>
+        {% if get_flashed_messages() %}
+            <div class="alert" role="alert">
+                {{ get_flashed_messages() | join(" ") }}
+            </div>
+        {% endif %}
+    </div>
+    <footer>
+        Mini project - Drishti
+    </footer>
+</body>
 </html>
