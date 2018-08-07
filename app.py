@@ -64,15 +64,12 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route("/")
 def index():
-    print('here-1')
     return render_template('index.html')
 
 
 @app.route('/results', methods=["GET", "POST"])
 def results():
-    print('here-2')
     if request.method == 'GET':
-        predict('here2')
         return render_template('index.html')
     else:
         if 'music' not in request.files:
@@ -83,7 +80,6 @@ def results():
         music_file = UPLOAD_FOLDER + filename
         if music.filename == '':
             return redirect('/')
-        print('here')
         features = preprocess(music_file)
         with open('model.json') as f:
             model_dict = json.load(f)
