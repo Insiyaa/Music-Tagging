@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %} POP v/s Classical{% endblock %}
+
+{% block main %}
+<div class="form">
+    <form method="POST" action="{{ url_for('results') }}" enctype="multipart/form-data">
+        <label for="music">Upload your music file:</label>
+        <input type="file" name="music" id="music" accept="audio/*">
+        <input type="submit" value="Go!">
+    </form>
+</div>
+{% endblock %}

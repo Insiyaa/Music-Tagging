@@ -1,0 +1,60 @@
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-gap: 15px;
+    grid-template-rows: 1fr 8fr 1fr; 
+    grid-template-columns: auto;
+    grid-template-areas: "navbar"
+                         "content"
+                         "footer";
+    background: #e3afbc;
+}
+
+#navbar {
+    grid-area: navbar;
+    background: #ee4c7c;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#navbar h1 {
+    /* text-align: center; */
+    font-weight: bolder;
+    vertical-align: middle;
+}
+
+.content {
+    height: 100%;
+    grid-area: content;
+    display: grid;
+    color: wheat;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+#footer {
+    grid-area: footer;
+    background: #5d001e;
+    color: #e3afbc;
+}
+
+.alert {
+    background: #e3afbc;
+}
+
+input {
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    height: 30px;
+    margin: 10px;
+}
+
+label {
+    text-align: left;
+}
+
+h4 {
+    text-align: center;
+}

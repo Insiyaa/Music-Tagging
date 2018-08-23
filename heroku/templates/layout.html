@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/> -->
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet"> 
+    <title>Music Tagging: {% block title %}{% endblock %}</title>
+</head>
+<style>
+    html, body {
+        margin: 0;
+        min-height: 100%;
+    }
+    .container {
+        display: grid;
+        grid-template-rows: 1fr 8fr 1fr;
+        grid-gap: 15px;
+        grid-template-columns: auto;
+        grid-template-areas: "navbar"
+                             "content"
+                             "footer"; 
+        background: #2b2c28;       
+    }
+    #navbar {
+        font-family: 'Righteous', cursive;
+        vertical-align: center;
+        grid-area: navbar;
+        background: linear-gradient(45deg, #1EC2C4, #1EC2C4, #1EC2C4, #1EC2C4,black);
+        color: #131515;
+        align-content: center;
+        text-align: center;
+    }
+    .content {
+        font-family: 'Aldrich', sans-serif;
+        align-content: center;
+        text-align: center;
+        background: url("{{ url_for('static', filename='bg.jpg') }}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #131515;
+        padding: 30px;
+        font-size: 20px;
+    }
+    .alert {
+        text-align: center;
+        color: #131515;
+        font-family: 'Aldrich', sans-serif;
+        font-size: 20px;
+        margin: 20px;
+    }
+    .footer {
+        font-family: 'Aldrich', sans-serif;
+        text-align: center;
+        vertical-align: middle;
+        background: #1EC2C4;
+        color: #131515; 
+        display: table-cell;
+        vertical-align: middle;
+        line-height: normal;
+    }
+</style>
+<body>
+    <div class="container">
+        <div id="navbar">
+            <h1>Music Tagging</h1>
+        </div>
+        <div class="content" background=>
+            {% block main %}{% endblock %}
+
+            {% if get_flashed_messages() %}
+            <div class="alert">
+                {{ get_flashed_messages() | join(" ") }}
+            </div>
+        {% endif %}
+        </div>
+        <div class="footer">
+            <br>
+            <br>
+            Mini project - Drishti
+        </div>
+    </div>
+</body>
+</html>
