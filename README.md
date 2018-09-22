@@ -1,1 +1,2 @@
-# logistic_genre
+# Music Tagging
+<p>The problem statement of this project was to classify music into POP and Classical. As a learning project, the team members implemented different algorithms from scratch. The accuracy came out to be 98% for two genres. The max accuracy we could achieve for 10 genres was 63% using a neural network. The further plans of this project are to apply a deeper neural network using the frameworks like pytorch and tensorflow and gathering more data for the sane. The project is presented as a web application and is hosted on Heroku. The link is in the descrpition. </p>
